@@ -1,0 +1,114 @@
+.main-container {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  padding: 50px;
+}
+
+.head {
+  text-align: center;
+}
+
+.todos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.todo-item {
+  min-width: 1000px;
+  border-radius: 10px;
+  border: 2px solid #4c49ee;
+  margin: 15px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button {
+  font-weight: bold;
+  background-color: #4c49ee;
+  color: white;
+  border-radius: 10px;
+  border: 0px solid #1d20ee;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #1d20ee;
+}
+
+.date,
+button {
+  margin-left: 20px;
+}
+.add-todo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.input-text {
+  border-radius: 10px;
+  border: 2px solid #4c49ee;
+  padding: 15px;
+}
+
+.input-text:hover {
+  border: 2px solid #1d20ee;
+}
+.input-text:focus {
+  border-color: #1d20ee;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.85);
+  animation-name: appear;
+  animation-duration: 300ms;
+}
+
+.search-todo {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+.search-todo button,
+.add-todo button {
+  min-width: 100px;
+}
+.search-todo input,
+.add-todo input {
+  min-width: 250px;
+}
+
+.founded-todos h2 {
+  text-align: center;
+}
+
+.sort-todo {
+  display: flex;
+  justify-content: center;
+}
+.sort-todo button {
+  min-width: 100px;
+  padding: 15px;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}

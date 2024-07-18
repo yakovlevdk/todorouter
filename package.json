@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "lodash-es": "^4.17.21",
+    "react-bootstrap": "^2.10.4",
+    "react-modal": "^3.16.1"
+  }
+}
