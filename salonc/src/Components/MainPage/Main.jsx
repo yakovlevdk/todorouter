@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import "./mainpage.styles.css";
 import { AddTodosForm } from "./addTodosForm";
-import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoList";
 import { SearchForm } from "./searchForm";
 import { useSortTodo } from "../../hooks/useSortTodo";
-export const Main = ({todosList, setTodosList, refresh, setRefresh}) => {
-  
+export const Main = ({ todosList, setTodosList, refresh, setRefresh }) => {
   const [foundedValues, setFoundedValues] = useState(null);
 
   useEffect(() => {
@@ -14,6 +13,7 @@ export const Main = ({todosList, setTodosList, refresh, setRefresh}) => {
       .then((todo) => {
         setTodosList(todo);
       });
+    console.log(foundedValues);
   }, [refresh]);
 
   const { handleSortTodo } = useSortTodo({
@@ -49,7 +49,7 @@ export const Main = ({todosList, setTodosList, refresh, setRefresh}) => {
               <div className="founded-todos">
                 <h2>Найденные задачи</h2>
                 {foundedValues.map((todo) => (
-                  <TodoList
+                  <TodoItem
                     key={todo.id}
                     refresh={refresh}
                     setRefresh={setRefresh}
@@ -61,7 +61,7 @@ export const Main = ({todosList, setTodosList, refresh, setRefresh}) => {
             <h2>Все задачи</h2>
             {todosList &&
               todosList.map((todo) => (
-                <TodoList
+                <TodoItem
                   key={todo.id}
                   refresh={refresh}
                   setRefresh={setRefresh}

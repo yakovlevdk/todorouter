@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const TodoList = ({ todo }) => {
+export const TodoItem = ({ todo }) => {
   return (
     <>
       <div className="todo-item" key={todo["id"]}>

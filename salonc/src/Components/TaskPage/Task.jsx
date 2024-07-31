@@ -2,20 +2,18 @@ import { useDeleteTodo } from "../../hooks/useDeleteTodo";
 import { useNavigate, useParams } from "react-router-dom";
 import "./taskpage.styles.css";
 import { useEffect, useState } from "react";
-import { ModalChangeTodo } from "../MainPage/modalChangeTodo";
+import { ModalChangeTodo } from "./modalChangeTodo";
 import { useOpenModal } from "../../hooks/useOpenModal";
 
 export const Task = ({ refresh, setRefresh }) => {
   const { id } = useParams();
   const [todo, setTodo] = useState({});
-  const [notFound, setNotFound] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
     fetch(`http://localhost:3000/todos/${id}`)
       .then((todos) => {
         if (!todos.ok) {
-          setNotFound(true);
-          return;
+          throw new Error("Not found");
         }
         return todos.json();
       })
@@ -23,7 +21,7 @@ export const Task = ({ refresh, setRefresh }) => {
         setTodo(todo);
       })
       .catch(() => {
-        setNotFound(true);
+        navigate("/404");
       });
   }, [refresh]);
 
@@ -34,10 +32,6 @@ export const Task = ({ refresh, setRefresh }) => {
     setTodo,
   });
   const { handleOpenModalWindow, isOpen, setIsOpen } = useOpenModal();
-
-  if (notFound) {
-    navigate("/404");
-  }
 
   return (
     <>

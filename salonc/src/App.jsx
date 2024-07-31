@@ -40,14 +40,7 @@ const App = () => {
           />
           <Route
             path="/task/:id"
-            element={
-              <Task
-                todosList={todosList}
-                setTodosList={setTodosList}
-                refresh={refresh}
-                setRefresh={setRefresh}
-              />
-            }
+            element={<Task refresh={refresh} setRefresh={setRefresh} />}
           />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
